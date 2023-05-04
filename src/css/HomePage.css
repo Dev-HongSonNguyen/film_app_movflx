@@ -1,0 +1,73 @@
+@keyframes showTop{
+    from{
+        opacity: 0;
+        transform: translate(0, -100px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+.animationTop{
+    animation: showTop 1.5s ease-in-out 1 forwards;
+}
+.delay-01{
+    animation-delay: 0.1s !important;
+}
+.delay-02{
+    animation-delay: 0.2s !important;
+}
+.slider{
+    background-image: url("https://res.cloudinary.com/freelencer/image/upload/v1682447341/Movie/s_slider_bg_kyyx2l.jpg");
+    background-position: top center;
+    background-size: cover;
+}
+.categoryFilm{
+    background-image: url("https://res.cloudinary.com/freelencer/image/upload/v1682534386/Movie/ucm_bg02_o3vyrs.jpg");
+    padding: 120px 0 90px;
+    background-position: top center;
+    background-size: cover;
+}
+.gallery{
+    background-image: url("https://res.cloudinary.com/freelencer/image/upload/v1682701440/Movie/gallery_bg_muxw7z.jpg");
+    /* padding: 100px; */
+    background-position: top center;
+    background-size: cover;
+}
+.service{
+    background-image: url("https://res.cloudinary.com/freelencer/image/upload/v1682838092/Movie/services_bg02_xzz2yr.jpg");
+    /* padding: 100px; */
+    background-position: top center;
+    background-size: cover;
+}
+.listFilm{
+    background-image: url("https://res.cloudinary.com/freelencer/image/upload/v1682876783/Movie/tr_movies_bg_axa4rg.jpg");
+    /* padding: 100px; */
+    background-position: top center;
+    background-size: cover;
+}
+/* listFilm */
+.movie-item:hover .movie-poster .pictureFilm{
+    opacity: 0.3;
+    transition: all 0.3s linear;
+}
+.btn-detail{
+    display: none;
+}
+.movie-item:hover .movie-poster .btn-detail{
+    transition: all 0.3s ease-in-out;
+    display: block;
+}
+/* .title-listFilm::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: url("https://res.cloudinary.com/freelencer/image/upload/v1682880320/Movie/title_shape_a4jpfk.png");
+    width: 98px;
+    height: 100px;
+} */
+.title-listFilm{
+    border-bottom: 2px solid #e4d804;
+    padding-bottom: 30px;
+}
