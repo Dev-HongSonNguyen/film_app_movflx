@@ -1,7 +1,24 @@
 import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "../css/HomePage.css";
 // import "../javascript/HomePage.js";
 const HomePage = () => {
+  const gallery = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplaySpeed: 2000,
+    autoplay: true,
+    responsive: [],
+  };
+  // const category = {
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  // };
   return (
     <div>
       <section className="slider relative z-1 p-[300px] hidden md:block">
@@ -17,10 +34,10 @@ const HomePage = () => {
             <div className="">
               <ul className="flex gap-[20px] animationTop">
                 <li>
-                  <span className="bg-[#ffffff] text-[11px] py-[7px] px-[11px]">
+                  <span className="bg-[#ffffff] text-[11px] py-[7px] px-[11px] rounded-[5px] mr-[2px]">
                     PG-18
                   </span>
-                  <span className="text-[#ffffff] border border-[#ffffff] font-bold text-[10px] py-[7px] px-[11px]">
+                  <span className="text-[#ffffff] border border-[#ffffff] font-bold text-[10px] py-[7px] px-[11px] rounded-[5px]">
                     HD
                   </span>
                 </li>
@@ -45,7 +62,7 @@ const HomePage = () => {
               </ul>
               <a
                 href=""
-                className="border border-[#e4d804] inline-block py-[16px] px-[34px] mt-[50px] text-[#e3dfdf] hover:bg-[#e4d804] hover:text-[#000000] animationTop ease-linear"
+                className="border border-[#e4d804] inline-block py-[16px] px-[34px] mt-[50px] text-[#e3dfdf] hover:bg-[#e4d804] hover:text-[#000000] animationTop ease-linear rounded-[5px]"
               >
                 <i className="fas fa-play"></i>
                 <label htmlFor="" className="pl-[10px]">
@@ -73,26 +90,27 @@ const HomePage = () => {
             <div className="md:flex items-end md:gap-[10px]">
               <a
                 href=""
-                className="inline-block text-[12px] bg-[#20212b] py-[11px] px-[27px] border border-[#e4d804]"
+                className="inline-block text-[12px] bg-[#20212b] py-[11px] px-[27px] border border-[#e4d804] rounded-[5px]"
               >
                 TV Shows
               </a>
               <a
                 href=""
-                className="inline-block text-[12px] bg-[#20212b] py-[11px] px-[27px] border border-[#e4d804]"
+                className="inline-block text-[12px] bg-[#20212b] py-[11px] px-[27px] border border-[#e4d804] rounded-[5px]"
               >
                 Movies
               </a>
               <a
                 href=""
-                className=" inline-block text-[12px] bg-[#20212b] py-[11px] px-[27px] border border-[#e4d804]"
+                className=" inline-block text-[12px] bg-[#20212b] py-[11px] px-[27px] border border-[#e4d804] rounded-[5px]"
               >
                 Anime
               </a>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 pt-[50px] gap-[30px] mx-[50px] md:mx-[0px]">
-            <div className="movie-item bg-[#1f1e24] px-[3px] py-[30px] text-center">
+            {/* <Slider {...category}> */}
+            <div className="movie-item bg-[#1f1e24] px-[3px] py-[30px] text-center rounded-[5px]">
               <div className="movie-poster flex justify-center ">
                 <a href="" className="">
                   <img
@@ -124,13 +142,13 @@ const HomePage = () => {
                     <li>
                       <a
                         href=""
-                        className="bg-[#02050a] text-[#4c5066] py-[7px] px-[12px] text-[10px] font-bold hover:text-[#e4d804] transition-all mr-[5px]"
+                        className="bg-[#02050a] text-[#4c5066] py-[7px] px-[12px] text-[10px] font-bold hover:text-[#e4d804] transition-all mr-[5px] rounded-[5px]"
                       >
                         HD
                       </a>
                       <a
                         href=""
-                        className="bg-[#02050a] text-[#4c5066] py-[7px] px-[12px] text-[10px] font-bold hover:text-[#e4d804] transition-all"
+                        className="bg-[#02050a] text-[#4c5066] py-[7px] px-[12px] text-[10px] font-bold hover:text-[#e4d804] transition-all rounded-[5px]"
                       >
                         ENGLISH
                       </a>
@@ -145,27 +163,30 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+            {/* </Slider> */}
           </div>
         </div>
       </section>
       <section className="gallery p-[50px] md:p-[100px]">
         <div className="w3-content w3-section max-w-[1280px] m-auto">
-          <img
-            className="mySlides md:w-[100%] md:h-[700px] w-[700px] h-[100px]"
-            src="https://res.cloudinary.com/freelencer/image/upload/v1682701253/Movie/gallery_01_gx07sj.jpg"
-          />
-          <img
-            className="mySlides md:w-[100%] md:h-[700px] w-[700px] h-[100px]"
-            src="https://res.cloudinary.com/freelencer/image/upload/v1682703652/Movie/gallery_04_sxil5n.jpg"
-          />
-          <img
-            className="mySlides md:w-[100%] md:h-[700px] w-[700px] h-[100px]"
-            src="https://res.cloudinary.com/freelencer/image/upload/v1682703940/Movie/gallery_02_rmskgm.jpg"
-          />
-          <img
-            className="mySlides md:w-[100%] md:h-[700px] w-[700px] h-[100px]"
-            src="https://res.cloudinary.com/freelencer/image/upload/v1682703950/Movie/gallery_03_vhau6s.jpg"
-          />
+          <Slider {...gallery}>
+            <img
+              className="mySlides md:w-[100%] md:h-[700px] w-[700px] h-[100px] rounded-[5px]"
+              src="https://res.cloudinary.com/freelencer/image/upload/v1682701253/Movie/gallery_01_gx07sj.jpg"
+            />
+            <img
+              className="mySlides md:w-[100%] md:h-[700px] w-[700px] h-[100px] rounded-[5px]"
+              src="https://res.cloudinary.com/freelencer/image/upload/v1682703652/Movie/gallery_04_sxil5n.jpg"
+            />
+            <img
+              className="mySlides md:w-[100%] md:h-[700px] w-[700px] h-[100px] rounded-[5px]"
+              src="https://res.cloudinary.com/freelencer/image/upload/v1682703940/Movie/gallery_02_rmskgm.jpg"
+            />
+            <img
+              className="mySlides md:w-[100%] md:h-[700px] w-[700px] h-[100px] rounded-[5px]"
+              src="https://res.cloudinary.com/freelencer/image/upload/v1682703950/Movie/gallery_03_vhau6s.jpg"
+            />
+          </Slider>
         </div>
       </section>
       <section className="service p-[50px] md:p-[100px]">
@@ -212,7 +233,7 @@ const HomePage = () => {
             <img
               src="https://res.cloudinary.com/freelencer/image/upload/v1682838185/Movie/services_img02_jtvu9z.jpg"
               alt=""
-              className="w-full rounded-[8px]"
+              className="w-full rounded-[5px]"
               style={{ boxShadow: "#070707 0px 3px 24px 0px" }}
             />
             {/* <div className="flex items-center gap-[10px] bg-[#e4d804]">
@@ -246,7 +267,7 @@ const HomePage = () => {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-[30px]">
-            <div className="movie-item bg-[#1f1e24] px-[3px] py-[30px] text-center">
+            <div className="movie-item bg-[#1f1e24] px-[3px] py-[30px] text-center rounded-[5px]">
               <div className="movie-poster flex justify-center relative">
                 <a href="" className="">
                   <img
@@ -259,7 +280,7 @@ const HomePage = () => {
                   <div className="pb-[30px]">
                     <a
                       href=""
-                      className="bg-[#e4d804] py-[11px] px-[18px] text-[10px]"
+                      className="bg-[#e4d804] py-[11px] px-[18px] text-[10px] rounded-[5px]"
                     >
                       Details
                     </a>
@@ -267,7 +288,7 @@ const HomePage = () => {
                   <div className="">
                     <a
                       href=""
-                      className="bg-[#e4d804] py-[11px] px-[18px] text-[10px]"
+                      className="bg-[#e4d804] py-[11px] px-[18px] text-[10px] rounded-[5px]"
                     >
                       Watch Now
                     </a>
@@ -296,13 +317,13 @@ const HomePage = () => {
                     <li className="">
                       <a
                         href=""
-                        className="bg-[#02050a] text-[#4c5066] py-[7px] px-[12px] text-[10px] font-bold hover:text-[#e4d804] transition-all mr-[5px]"
+                        className="bg-[#02050a] text-[#4c5066] py-[7px] px-[12px] text-[10px] font-bold hover:text-[#e4d804] transition-all mr-[5px] rounded-[5px]"
                       >
                         HD
                       </a>
                       <a
                         href=""
-                        className="bg-[#02050a] text-[#4c5066] py-[7px] px-[12px] text-[10px] font-bold hover:text-[#e4d804] transition-all"
+                        className="bg-[#02050a] text-[#4c5066] py-[7px] px-[12px] text-[10px] font-bold hover:text-[#e4d804] transition-all rounded-[5px]"
                       >
                         ENGLISH
                       </a>

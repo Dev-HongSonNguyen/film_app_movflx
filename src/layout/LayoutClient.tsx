@@ -48,7 +48,9 @@ const LayoutClient = () => {
               </div>
               <div className="nav-right">
                 <a href="#">SIGN IN</a>
+                <a href="#">SIGN UP</a>
               </div>
+
               <label htmlFor="check" className="nav-bar">
                 <i className="fas fa-bars"></i>
               </label>
@@ -71,7 +73,7 @@ const LayoutClient = () => {
                 <a href="#" className="nav-mobile-link">
                   TV SHOW
                 </a>
-                <a href="#" className="nav-mobile-link">
+                <a href="blog" className="nav-mobile-link">
                   BLOG
                 </a>
                 <a href="#" className="nav-mobile-link">
@@ -79,7 +81,10 @@ const LayoutClient = () => {
                 </a>
                 <hr />
                 <a href="#" className="nav-mobile-button-link">
-                  SIGN IN
+                  ĐĂNG NHẬP
+                </a>
+                <a href="#" className="nav-mobile-button-link">
+                  ĐĂNG KÝ
                 </a>
               </li>
             </ul>

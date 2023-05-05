@@ -71,3 +71,41 @@
     border-bottom: 2px solid #e4d804;
     padding-bottom: 30px;
 }
+.slick-prev::before{
+    font-size: 100px;
+}
+.slick-prev {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.3;
+  }
+  .slick-next::before{
+    font-size: 100px;
+  }
+  .slick-next {
+    position: absolute;
+    top: 50%;
+    right: 90px;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.3;
+  }
+  @media (max-width: 1023px){
+    .slick-prev::before{
+        display: none;
+    }
+    .slick-next::before{
+        display: none;
+    }
+  }
