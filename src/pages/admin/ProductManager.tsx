@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Space, Table, Tag, Button } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { Iproduct } from "../../interface/Iproduct";
 import { Icategory } from "../../interface/Icategory";
+import { Link } from "react-router-dom";
+import { getAllProduct } from "../../api/ApiProduct";
 interface ProductManager {
   product: Iproduct[];
   category: Icategory[];
   delete: (id: string) => void;
+  setProduct: any;
 }
 const ProductManager = (props: ProductManager) => {
   const columns: ColumnsType<Iproduct> = [
@@ -57,7 +60,7 @@ const ProductManager = (props: ProductManager) => {
       render: (_, record) => (
         <Space size="middle">
           <Button type="primary" danger>
-            EDIT
+            <Link to={`update/${record._id}`}>EDIT</Link>
           </Button>
           <Button
             type="primary"

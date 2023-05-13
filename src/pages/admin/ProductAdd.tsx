@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Checkbox, Form, Input, InputNumber, Select } from "antd";
 import { Icategory } from "../../interface/Icategory";
 import { Iproduct } from "../../interface/Iproduct";
+const { Option } = Select;
 interface ProductAdd {
   category: Icategory[];
   addProduct: (product: Iproduct) => void;
@@ -10,7 +11,6 @@ interface ProductAdd {
 const ProductAdd = (props: ProductAdd) => {
   const onFinish = (values: any) => {
     props.addProduct(values);
-    console.log(values);
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -42,6 +42,14 @@ const ProductAdd = (props: ProductAdd) => {
       >
         <Input />
       </Form.Item>
+      <Form.Item
+        label="Link Film"
+        name="linkFilm"
+        rules={[{ required: true, message: "Please input your linkFilm!" }]}
+      >
+        <Input />
+      </Form.Item>
+
       <Form.Item
         label="Năm Phát Hành"
         name="year"

@@ -12,10 +12,16 @@ import ProductUpdate from "./pages/admin/ProductUpdate";
 import CategoryManager from "./pages/admin/CategoryManager";
 import CategoryAdd from "./pages/admin/CategoryAdd";
 import CategoryUpdate from "./pages/admin/CategoryUpdate";
-import { getAllProduct, addProduct, deleteProduct } from "./api/ApiProduct";
+import {
+  getAllProduct,
+  addProduct,
+  deleteProduct,
+  updateProduct,
+} from "./api/ApiProduct";
 import { Icategory } from "./interface/Icategory";
 import { getAllCategory } from "./api/ApiCategory";
 import { message } from "antd";
+import axios from "axios";
 function App() {
   const navigate = useNavigate();
   const [product, setProduct] = useState<Iproduct[]>([]);
@@ -40,9 +46,11 @@ function App() {
   // add product
   const AddProduct = (product: any) => {
     try {
-      addProduct(product);
-      message.success("Thao tác thành công!");
+      addProduct(product).then(() =>
+        getAllProduct().then(({ data }) => setProduct(data))
+      );
       navigate("admin/products");
+      message.success("Thao tác thành công!");
     } catch (error) {
       console.log(error);
     }
@@ -54,6 +62,14 @@ function App() {
       message.success("Thao tác thành công!");
       setProduct(newProduct);
     });
+  };
+  //update product
+  const Update = (product: Iproduct) => {
+    updateProduct(product).then(() =>
+      getAllProduct().then(({ data }) => setProduct(data))
+    );
+    message.success("Thao tác thành công!");
+    navigate("admin/products");
   };
   return (
     <div className="App">
@@ -72,6 +88,7 @@ function App() {
                   product={product}
                   category={category}
                   delete={Delete}
+                  setProduct={setProduct}
                 />
               }
             />
@@ -81,7 +98,16 @@ function App() {
                 <ProductAdd category={category} addProduct={AddProduct} />
               }
             />
-            <Route path="update/:id" element={<ProductUpdate />} />
+            <Route
+              path="update/:id"
+              element={
+                <ProductUpdate
+                  product={product}
+                  category={category}
+                  updateProduct={Update}
+                />
+              }
+            />
           </Route>
           <Route path="categories">
             <Route index element={<CategoryManager category={category} />} />
