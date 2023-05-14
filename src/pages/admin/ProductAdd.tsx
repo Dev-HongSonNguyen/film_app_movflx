@@ -92,9 +92,7 @@ const ProductAdd = (props: ProductAdd) => {
         </Select>
       </Form.Item>
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
+        <Button htmlType="submit">Submit</Button>
       </Form.Item>
     </Form>
   );

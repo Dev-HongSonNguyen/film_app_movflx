@@ -12,6 +12,13 @@ interface ProductManager {
   setProduct: any;
 }
 const ProductManager = (props: ProductManager) => {
+  // render lại
+  useEffect(() => {
+    getAllProduct().then(({ data }) => {
+      const dataProduct = data.product;
+      props.setProduct(dataProduct.docs);
+    });
+  });
   const columns: ColumnsType<Iproduct> = [
     {
       title: "Name",

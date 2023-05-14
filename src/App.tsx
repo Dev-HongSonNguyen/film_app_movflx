@@ -19,7 +19,12 @@ import {
   updateProduct,
 } from "./api/ApiProduct";
 import { Icategory } from "./interface/Icategory";
-import { getAllCategory } from "./api/ApiCategory";
+import {
+  addCategory,
+  deleteCategory,
+  getAllCategory,
+  updateCategory,
+} from "./api/ApiCategory";
 import { message } from "antd";
 import axios from "axios";
 function App() {
@@ -43,20 +48,19 @@ function App() {
       });
     } catch (error) {}
   }, []);
+
   // add product
   const AddProduct = (product: any) => {
     try {
-      addProduct(product).then(() =>
-        getAllProduct().then(({ data }) => setProduct(data))
-      );
+      addProduct(product);
+      message.success("Thao tác thành công");
       navigate("admin/products");
-      message.success("Thao tác thành công!");
     } catch (error) {
       console.log(error);
     }
   };
   // delete product
-  const Delete = (id: string) => {
+  const DeleteProduct = (id: string) => {
     deleteProduct(id).then(() => {
       const newProduct = product.filter((item) => item._id !== id);
       message.success("Thao tác thành công!");
@@ -64,12 +68,44 @@ function App() {
     });
   };
   //update product
-  const Update = (product: Iproduct) => {
-    updateProduct(product).then(() =>
-      getAllProduct().then(({ data }) => setProduct(data))
-    );
-    message.success("Thao tác thành công!");
-    navigate("admin/products");
+  const UpdateProduct = (product: Iproduct) => {
+    try {
+      updateProduct(product);
+      message.success("Thao tác thành công!");
+      navigate("admin/products");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // add category
+  const AddCategory = (category: Icategory) => {
+    try {
+      addCategory(category);
+      message.success("Thao tác thành công");
+      navigate("admin/categories");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // delete category
+  const DeleteCategory = (id: string) => {
+    try {
+      deleteCategory(id).then(() => {
+        const newCategory = category.filter((item) => item._id !== id);
+        message.success("Thao tác thành công!");
+        setCategory(newCategory);
+      });
+    } catch (error) {}
+  };
+  // update category
+  const UpdateCategory = (category: Icategory) => {
+    try {
+      updateCategory(category);
+      message.success("Thao tác thành công!");
+      navigate("admin/categories");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="App">
@@ -87,7 +123,7 @@ function App() {
                 <ProductManager
                   product={product}
                   category={category}
-                  delete={Delete}
+                  delete={DeleteProduct}
                   setProduct={setProduct}
                 />
               }
@@ -104,15 +140,35 @@ function App() {
                 <ProductUpdate
                   product={product}
                   category={category}
-                  updateProduct={Update}
+                  updateProduct={UpdateProduct}
                 />
               }
             />
           </Route>
           <Route path="categories">
-            <Route index element={<CategoryManager category={category} />} />
-            <Route path="add" element={<CategoryAdd />} />
-            <Route path="update/:id" element={<CategoryUpdate />} />
+            <Route
+              index
+              element={
+                <CategoryManager
+                  category={category}
+                  setCategory={setCategory}
+                  deleteCategory={DeleteCategory}
+                />
+              }
+            />
+            <Route
+              path="add"
+              element={<CategoryAdd addCategory={AddCategory} />}
+            />
+            <Route
+              path="update/:id"
+              element={
+                <CategoryUpdate
+                  category={category}
+                  updateCategory={UpdateCategory}
+                />
+              }
+            />
           </Route>
         </Route>
       </Routes>
